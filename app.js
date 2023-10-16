@@ -21,3 +21,13 @@ document.getElementById('notificar').addEventListener('click', function() {
     }
   });
 });
+
+document.getElementById('enviar-notificacao').addEventListener('click', function() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Título da Notificação', {
+        body: 'Esta é uma notificação de teste.'
+      });
+    });
+  }
+});
